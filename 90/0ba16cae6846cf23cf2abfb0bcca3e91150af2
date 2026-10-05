@@ -1,0 +1,90 @@
+.gitignore
+  h_bf0ada3931f770 1
+Makefile
+  h_bf0ada3931f770 1-133
+README.md
+  h_bf0ada3931f770 1-349
+cmd/device/encoding_json.go
+  h_bf0ada3931f770 1-43
+cmd/device/encoding_protobuf.go
+  h_bf0ada3931f770 1-43
+cmd/device/logs.go
+  h_bf0ada3931f770 1-58
+cmd/device/main.go
+  h_bf0ada3931f770 1-303
+cmd/device/rssi.go
+  h_bf0ada3931f770 1-29
+cmd/device/sntp.go
+  h_bf0ada3931f770 1-49
+cmd/device/traces.go
+  h_bf0ada3931f770 1-91
+cmd/hostsim/main.go
+  h_bf0ada3931f770 1-128
+collector/config.yaml
+  h_bf0ada3931f770 1-56
+docker-compose.yaml
+  h_bf0ada3931f770 1-30
+go.mod
+  h_bf0ada3931f770 1-12
+go.sum
+  h_bf0ada3931f770 1-12
+grafana/dashboards.yaml
+  h_bf0ada3931f770 1-8
+grafana/gen_dashboard.py
+  h_bf0ada3931f770 1-81
+grafana/tinygo-device.json
+  h_bf0ada3931f770 1-522
+otlpjson/logs.go
+  h_bf0ada3931f770 1-149
+otlpjson/logs_test.go
+  h_bf0ada3931f770 1-109
+otlpjson/otlpjson.go
+  h_bf0ada3931f770 1-247
+otlpjson/otlpjson_test.go
+  h_bf0ada3931f770 1-255
+otlpjson/traces.go
+  h_bf0ada3931f770 1-176
+otlpjson/traces_test.go
+  h_bf0ada3931f770 1-123
+otlpmini/encoder.go
+  h_bf0ada3931f770 1-27
+otlpmini/exporter.go
+  h_bf0ada3931f770 1-133
+otlpmini/exporter_socket.go
+  h_bf0ada3931f770 1-343
+otlpmini/exporter_socket_http_test.go
+  h_bf0ada3931f770 1-144
+otlpmini/http_util.go
+  h_bf0ada3931f770 1-177
+otlpmini/otlpmini_socket_test.go
+  h_bf0ada3931f770 1-111
+otlpmini/otlpmini_test.go
+  h_bf0ada3931f770 1-312
+otlpmini/partial_success.go
+  h_bf0ada3931f770 1-247
+otlpmini/registry.go
+  h_bf0ada3931f770 1-174
+otlpmini/retry_partial_test.go
+  h_bf0ada3931f770 1-192
+otlpmini/sibling_test.go
+  h_bf0ada3931f770 1-55
+sntp/sntp.go
+  h_bf0ada3931f770 1-127
+sntp/sntp_test.go
+  h_bf0ada3931f770 1-178
+wire/wire.go
+  h_bf0ada3931f770 1-232
+wire/wire_test.go
+  h_bf0ada3931f770 1-159
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "900ba16cae6846cf23cf2abfb0bcca3e91150af2",
+  "prompts": {},
+  "humans": {
+    "h_bf0ada3931f770": {
+      "author": "Yoshi Yamaguchi <ymotongpoo@gmail.com>"
+    }
+  }
+}
