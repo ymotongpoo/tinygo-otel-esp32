@@ -1,0 +1,56 @@
+receivers:
+  otlp:
+    protocols:
+      http:
+        # The device cannot use TLS, so the collector must listen on all
+        # interfaces of the demo network rather than on localhost.
+        endpoint: 0.0.0.0:4318
+
+processors:
+  # Attributes the device cannot know about itself. Keeping them here instead
+  # of in the firmware is the point of the talk: every byte added on the device
+  # is a byte transmitted over WiFi on every export.
+  resource:
+    attributes:
+      - key: deployment.environment.name
+        value: demo
+        action: upsert
+      - key: telemetry.sdk.language
+        value: go
+        action: upsert
+      - key: telemetry.sdk.name
+        value: otlpmini
+        action: upsert
+  batch:
+    timeout: 5s
+
+exporters:
+  # Prints every received batch. This is what "it arrived" looks like during
+  # the demo before anything reaches a backend.
+  debug:
+    verbosity: basic
+  # Forwards to the Grafana stack (grafana/otel-lgtm) started by
+  # docker-compose.yaml. In production this is where TLS and credentials would
+  # live: the collector, not the device, talks to the outside world.
+  otlphttp/lgtm:
+    endpoint: http://lgtm:4318
+    tls:
+      insecure: true
+
+service:
+  pipelines:
+    metrics:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [debug, otlphttp/lgtm]
+    traces:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [debug, otlphttp/lgtm]
+    logs:
+      receivers: [otlp]
+      processors: [resource, batch]
+      exporters: [debug, otlphttp/lgtm]
+  telemetry:
+    logs:
+      level: info

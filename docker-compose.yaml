@@ -1,0 +1,30 @@
+# Demo backend: device -> edge collector -> Grafana stack.
+#
+#   ESP32 --OTLP/HTTP (plain, LAN)--> collector :4319 --OTLP/HTTP--> lgtm
+#
+# The edge collector is kept separate from otel-lgtm on purpose. It is the
+# place where attributes are added and where TLS to a real backend would be
+# configured, which is the part of the talk about what to move off the device.
+#
+#   make stack        # start
+#   open http://localhost:3000   (Grafana, anonymous admin)
+services:
+  collector:
+    image: otel/opentelemetry-collector-contrib:0.160.0
+    command: ["--config", "/etc/otelcol/config.yaml"]
+    volumes:
+      - ./collector/config.yaml:/etc/otelcol/config.yaml:ro
+    ports:
+      # 4319 on the host because a local Alloy or collector often holds 4318.
+      - "${COLLECTOR_PORT:-4319}:4318"
+    depends_on: [lgtm]
+
+  lgtm:
+    image: grafana/otel-lgtm:0.32.1
+    ports:
+      - "3000:3000"
+      # Prometheus UI, for checking label names while building dashboards.
+      - "9090:9090"
+    volumes:
+      - ./grafana/dashboards.yaml:/otel-lgtm/grafana/conf/provisioning/dashboards/tinygo.yaml:ro
+      - ./grafana/tinygo-device.json:/otel-lgtm/tinygo-device.json:ro
