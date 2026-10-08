@@ -1,3 +1,6 @@
+// Author: Yoshi Yamaguchi <yoshi@grafana.com>
+// SPDX-License-Identifier: Apache-2.0
+
 // Package otlpmini is a minimal OpenTelemetry metrics pipeline for TinyGo.
 //
 // Two layers of the official Go stack do not work on a microcontroller, for

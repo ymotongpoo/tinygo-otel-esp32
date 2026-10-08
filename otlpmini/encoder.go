@@ -1,3 +1,6 @@
+// Author: Yoshi Yamaguchi <yoshi@grafana.com>
+// SPDX-License-Identifier: Apache-2.0
+
 package otlpmini
 
 // Encoder is what the firmware needs from an OTLP encoder: turn the current

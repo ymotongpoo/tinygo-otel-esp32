@@ -1,3 +1,6 @@
+// Author: Yoshi Yamaguchi <yoshi@grafana.com>
+// SPDX-License-Identifier: Apache-2.0
+
 // Package wire encodes OTLP metrics payloads without reflection.
 //
 // It exists because google.golang.org/protobuf cannot run on these targets.

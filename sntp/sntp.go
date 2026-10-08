@@ -1,3 +1,6 @@
+// Author: Yoshi Yamaguchi <yoshi@grafana.com>
+// SPDX-License-Identifier: Apache-2.0
+
 // Package sntp implements the parts of SNTP that a microcontroller needs to
 // set its clock.
 //

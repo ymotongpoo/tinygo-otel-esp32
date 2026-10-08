@@ -1,3 +1,6 @@
+// Author: Yoshi Yamaguchi <yoshi@grafana.com>
+// SPDX-License-Identifier: Apache-2.0
+
 // Package otlpjson encodes OTLP metrics payloads as JSON using encoding/json.
 //
 // OTLP/HTTP specifies two encodings, binary protobuf and JSON, and a collector
